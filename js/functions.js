@@ -1,16 +1,20 @@
-function isPalindrome(str) {
-  const cleanedStr = str.toLowerCase().replaceAll(/ /g, '');
-  const length = cleanedStr.length;
-
-  for (let i = 0; i < length / 2; i++) {
-    if (cleanedStr[i] !== cleanedStr[length - 1 - i]) {
-      return false;
-    }
-  }
-
-  return true;
-}
-console.log(isPalindrome('кекс'));
-
 const isStrLengthValid = (str, maxLength) => str.length <= maxLength;
-console.log(isStrLengthValid('проверяемая строка', 20));
+// console.log(isStrLengthValid('проверяемая строка', 20));
+
+function isPalindrome(sourceStr) {
+  const updateStr = sourceStr.toLowerCase().replaceAll(' ', '');
+  const reverseStr = updateStr.split('').reverse().join('');
+
+  return updateStr === reverseStr;
+}
+
+
+function extractNumbers(str) {
+  const digits = str.toString().split('').filter((char) => /\d/.test(char));
+  if (digits.length > 0) {
+    return parseInt(digits.join(''), 10);
+  } else {
+    return NaN;
+  }
+}
+//console.log(extractNumbers(2023));
