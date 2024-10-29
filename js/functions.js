@@ -18,3 +18,16 @@ function extractNumbers(str) {
   }
 }
 //console.log(extractNumbers(2023));
+
+const isMeetingWithinWorkingHours = (startOfDay, endOfDay, meetingStart, meetingDuration) => {
+  const timeToMinutes = (time) => {
+    const [hours, minutes] = time.split(':').map(Number);
+    return hours * 60 + minutes;
+  };
+
+  const startDay = timeToMinutes(startOfDay);
+  const endDay = timeToMinutes(endOfDay);
+  const meetingStartInMinutes = timeToMinutes(meetingStart);
+  const meetingEndInMinutes = meetingStartInMinutes + meetingDuration;
+  return meetingStartInMinutes >= startDay && meetingEndInMinutes <= endDay;
+};
