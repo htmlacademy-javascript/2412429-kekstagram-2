@@ -1,5 +1,4 @@
-import {getRandomArrayElement} from './util.js';
-import {getRandomInteger} from './util.js';
+import { getRandomInteger, getRandomArrayElement } from './util.js';
 
 const DESCRIPTION_LIST = [
   'говорят, там пляж',
@@ -66,6 +65,7 @@ const NAMES = [
   'Линг'
 ];
 
+
 const GENERATE_PHOTO_COUNT = 25;
 
 const generateCommentItem = (index) => ({
@@ -94,8 +94,6 @@ const generatePhotoItem = (i) => ({
   comments: generateComments()
 });
 
-const generatePhotos = Array.from({ length: GENERATE_PHOTO_COUNT }, (_, i) => generatePhotoItem(i + 1));
+const generatePhotos = () => Array.from({ length: GENERATE_PHOTO_COUNT }, (_, i) => generatePhotoItem(i + 1));
 
-export {generatePhotos};
-
-// console.log(JSON.stringify(generatePhotos, null, 1));
+export { generatePhotos };
