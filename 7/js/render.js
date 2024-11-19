@@ -1,12 +1,8 @@
 import { generatePhotos } from './data.js';
 
-const render = () => {
-  const imgFilters = document.querySelector('.img-filters');
-  imgFilters.classList.remove('img-filters--inactive');
-
+const render = (photos) => {
   const picturesContainer = document.querySelector('.pictures');
   const pictureTemplate = document.querySelector('#picture').content.querySelector('.picture');
-  const photos = generatePhotos();
   const fragment = document.createDocumentFragment();
 
   photos.forEach(({ url, description, likes, comments }) => {
@@ -20,5 +16,9 @@ const render = () => {
 
   picturesContainer.appendChild(fragment);
 };
+
+const photos = generatePhotos();
+
+render(photos);
 
 export { render };
