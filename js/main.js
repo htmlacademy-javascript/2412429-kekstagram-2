@@ -1,8 +1,7 @@
-import {generatePhotos} from './data.js';
-import {render} from './render.js';
+import { generatePhotos } from './data.js';
+import { render } from './render.js';
 
-render();
+const photos = generatePhotos();
+render(photos);
 
-console.log (
-  generatePhotos
-);
+console.log(photos);
